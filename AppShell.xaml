@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TanqueCheio.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TanqueCheio"
+    Shell.FlyoutBehavior="Disabled"
+    Title="TanqueCheio">
+
+    <TabBar>
+        <ShellContent
+            Title="Início"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Histórico"
+            ContentTemplate="{DataTemplate local:HistoricoPage}"
+            Route="HistoricoPage" />
+    </TabBar>
+</Shell>

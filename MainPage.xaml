@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TanqueCheio.MainPage"
+             BackgroundColor="#f7f7f7"
+             Title="Tanque Cheio - o seu comparador de combustível!">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" HorizontalOptions="Center" WidthRequest="650">
+
+            <!-- Logo aumentado -->
+            <Image Source="fuel_icon.png"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   HorizontalOptions="Center" />
+
+            <!-- Título -->
+            <Label Text="Vamos comparar? 🚗⛽"
+                   FontSize="28"
+                   TextColor="#2E7D32"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold" />
+
+            <!-- Entrada Preço Gasolina -->
+            <Frame CornerRadius="12" Padding="0" HasShadow="True" BackgroundColor="White" HeightRequest="50">
+                <Entry x:Name="GasolinaEntry"
+                       Placeholder="Preço da Gasolina (ex: 5.49)"
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       AutomationProperties.HelpText="Campo para digitar o preço da gasolina" />
+            </Frame>
+
+            <!-- Entrada Preço Etanol -->
+            <Frame CornerRadius="12" Padding="0" HasShadow="True" BackgroundColor="White" HeightRequest="50">
+                <Entry x:Name="EtanolEntry"
+                       Placeholder="Preço do Etanol (ex: 3.99)"
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       AutomationProperties.HelpText="Campo para digitar o preço do etanol" />
+            </Frame>
+
+            <!-- Botão Comparar -->
+            <Button Text="Comparar"
+                    BackgroundColor="#2E7D32"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    Clicked="OnCompararClicked" />
+
+            <!-- Botão Limpar -->
+            <Button Text="Limpar"
+                    BackgroundColor="#555555"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    Clicked="OnLimparClicked" />
+
+            <!-- Resultado -->
+            <Label x:Name="ResultadoLabel"
+                   Text=""
+                   FontSize="18"
+                   TextColor="#444"
+                   HorizontalOptions="Center"
+                   Margin="10"
+                   FontAttributes="Italic" />
+
+            <!-- Última Comparação -->
+            <Label x:Name="UltimaComparacaoLabel"
+                   Text=""
+                   FontSize="16"
+                   TextColor="#555"
+                   HorizontalOptions="Center"
+                   FontAttributes="Italic"
+                   Margin="5" />
+
+            <!-- Quadro com carrinho acima e dica abaixo -->
+            <Frame BackgroundColor="#E8F5E9"
+                   BorderColor="#A5D6A7"
+                   CornerRadius="10"
+                   Padding="15"
+                   Margin="0,0,0,5"
+                   HasShadow="True"
+                   HorizontalOptions="Center"
+                   WidthRequest="600">
+
+                <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                    <Image Source="carrinho.png"
+                           WidthRequest="120"
+                           HeightRequest="120"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Dica: Abasteça sempre em postos de confiança para a segurança de seu veículo!"
+                           FontSize="16"
+                           TextColor="#2E7D32"
+                           HorizontalOptions="Center"
+                           FontAttributes="Italic"
+                           LineBreakMode="WordWrap"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botões de ação centralizados lado a lado -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+
+                <Button Text="Histórico"
+                        BackgroundColor="#1976D2"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="140"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="OnVerHistoricoClicked" />
+
+                <Button Text="Postos Próximos"
+                        BackgroundColor="#1976D2"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="140"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="OnPostosProximosClicked" />
+
+                <Button Text="Compartilhe"
+                        BackgroundColor="#1976D2"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="180"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="OnCompartilharClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

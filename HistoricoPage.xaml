@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TanqueCheio.HistoricoPage"
+             BackgroundColor="#FAFAFA"
+             Title="Histórico">
+
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="FillAndExpand">
+
+        <!-- Botão Voltar -->
+        <Button Text="← Voltar" 
+                BackgroundColor="#424242" 
+                TextColor="White" 
+                CornerRadius="8"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                FontAttributes="Bold"
+                Clicked="OnVoltarClicked"
+                AutomationProperties.HelpText="Voltar para a página anterior"/>
+
+        <!-- Container com borda arredondada para a lista e barra de rolagem -->
+        <Frame CornerRadius="10" Padding="0" HasShadow="False" BackgroundColor="White" VerticalOptions="FillAndExpand" Margin="0,0,0,10">
+            <ScrollView>
+                <CollectionView x:Name="HistoricoList"
+                                Margin="0"
+                                SelectionMode="None"
+                                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10" Padding="10" CornerRadius="8" BorderColor="#ddd" HasShadow="False" BackgroundColor="#FAFAFA">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding DataComparacao, StringFormat='Data: {0:dd/MM/yyyy HH:mm}'}" 
+                                           FontAttributes="Bold" TextColor="#333" FontSize="14"/>
+                                    <Label Text="{Binding PrecoGasolinaComum, StringFormat='Gasolina: R${0:F2}'}" FontSize="14" TextColor="#555"/>
+                                    <Label Text="{Binding PrecoEtanol, StringFormat='Etanol: R${0:F2}'}" FontSize="14" TextColor="#555"/>
+                                    <Label Text="{Binding Resultado}" TextColor="#2E7D32" FontAttributes="Bold" FontSize="15"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </Frame>
+
+        <!-- Resumo atual -->
+        <Label x:Name="ResumoAtualLabel" 
+               FontAttributes="Italic" 
+               TextColor="#555" 
+               HorizontalOptions="Center"
+               FontSize="14"
+               Margin="0,0,0,10"/>
+
+        <!-- Botões exportação + limpar alinhados lado a lado e centralizados -->
+        <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+
+            <Button Text="Exportar PDF" 
+                    BackgroundColor="#6A1B9A" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    WidthRequest="130" 
+                    HeightRequest="45"
+                    FontAttributes="Bold"
+                    Clicked="OnExportarPdfClicked"
+                    AutomationProperties.HelpText="Exportar histórico em formato PDF"/>
+
+            <Button Text="Exportar CSV" 
+                    BackgroundColor="#00796B" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    WidthRequest="130" 
+                    HeightRequest="45"
+                    FontAttributes="Bold"
+                    Clicked="OnExportarCsvClicked"
+                    AutomationProperties.HelpText="Exportar histórico em formato CSV"/>
+
+            <Button Text="Limpar Histórico" 
+                    BackgroundColor="#D32F2F" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    WidthRequest="140"
+                    HeightRequest="45"
+                    FontAttributes="Bold"
+                    Clicked="OnLimparHistoricoClicked"
+                    AutomationProperties.HelpText="Limpar todo o histórico de comparações"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

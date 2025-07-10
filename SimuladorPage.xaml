@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+    x:Class="TanqueCheio.SimuladorPage"
+    Title="Simulador de Viagem"
+    BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="15" HorizontalOptions="Center" WidthRequest="400">
+
+        <Entry x:Name="OrigemEntry" Placeholder="Digite endereço de origem" />
+
+        <Entry x:Name="DestinoEntry" Placeholder="Digite endereço de destino" />
+
+        <Button Text="Simular Viagem" Clicked="OnSimularClicked" BackgroundColor="#2E7D32" TextColor="White" />
+
+        <maps:Map x:Name="mapa" HeightRequest="300" />
+
+        <Entry x:Name="DistanciaEntry" Placeholder="Distância em km" Keyboard="Numeric" />
+
+        <Entry x:Name="ConsumoEntry" Placeholder="Consumo médio (km/l)" Keyboard="Numeric" />
+
+        <Entry x:Name="PrecoCombustivelEntry" Placeholder="Preço combustível (R$/l)" Keyboard="Numeric" />
+
+        <Button Text="Calcular custo" Clicked="OnCalcularClicked" BackgroundColor="#2E7D32" TextColor="White" />
+
+        <Label x:Name="ResultadoLabel" FontAttributes="Bold" FontSize="18" TextColor="#2E7D32" />
+
+    </VerticalStackLayout>
+</ContentPage>
